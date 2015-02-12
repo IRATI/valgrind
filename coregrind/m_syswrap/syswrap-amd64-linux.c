@@ -1076,10 +1076,20 @@ static SyscallTableEntry syscall_table[] = {
 //   LIN__(__NR_renameat2,         sys_ni_syscall),       // 316
 //   LIN__(__NR_seccomp,           sys_ni_syscall),       // 317
    LINXY(__NR_getrandom,         sys_getrandom),        // 318
-   LINXY(__NR_memfd_create,      sys_memfd_create)      // 319
+   LINXY(__NR_memfd_create,      sys_memfd_create),      // 319
 
 //   LIN__(__NR_kexec_file_load,   sys_ni_syscall),       // 320
 //   LIN__(__NR_bpf,               sys_ni_syscall)        // 321
+
+   /* RINA specific system calls */
+   LINX_(__NR_ipc_create,        sys_ipc_create),       // 323
+   LINX_(__NR_ipc_destroy,       sys_ipc_destroy),      // 324
+   LINXY(__NR_sdu_read,          sys_sdu_read),         // 325
+   LINX_(__NR_sdu_write,         sys_sdu_write),        // 326
+   LINX_(__NR_allocate_port,     sys_allocate_port),    // 327
+   LINX_(__NR_deallocate_port,   sys_deallocate_port),  // 328
+   LINXY(__NR_management_sdu_read,  sys_management_sdu_read),  // 329
+   LINX_(__NR_management_sdu_write, sys_management_sdu_write) // 330
 };
 
 SyscallTableEntry* ML_(get_linux_syscall_entry) ( UInt sysno )
