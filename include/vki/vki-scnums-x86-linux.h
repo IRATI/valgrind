@@ -393,6 +393,17 @@
 #define __NR_memfd_create       356
 #define __NR_bpf                357
 
+/* RINA specific syscalls */
+#define __NR_ipc_create 354
+#define __NR_ipc_destroy 355
+#define __NR_sdu_read 356
+#define __NR_sdu_write 357
+#define __NR_allocate_port 358
+#define __NR_deallocate_port 359
+#define __NR_management_sdu_read 360
+#define __NR_management_sdu_write 361
+
+
 #endif /* __VKI_SCNUMS_X86_LINUX_H */
 
 /*--------------------------------------------------------------------*/

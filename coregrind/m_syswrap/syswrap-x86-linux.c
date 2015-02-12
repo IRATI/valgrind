@@ -1826,6 +1826,16 @@ static SyscallTableEntry syscall_table[] = {
    LINXY(__NR_getrandom,         sys_getrandom),        // 355
    LINXY(__NR_memfd_create,      sys_memfd_create)      // 356
 //   LIN__(__NR_bpf,               sys_ni_syscall)        // 357
+
+   /* RINA specific system calls */
+   LINX_(__NR_ipc_create,        sys_ipc_create),       // 354
+   LINX_(__NR_ipc_destroy,       sys_ipc_destroy),      // 355
+   LINXY(__NR_sdu_read,          sys_sdu_read),         // 356
+   LINX_(__NR_sdu_write,         sys_sdu_write),        // 357
+   LINX_(__NR_allocate_port,     sys_allocate_port),    // 358
+   LINX_(__NR_deallocate_port,   sys_deallocate_port),  // 359
+   LINXY(__NR_management_sdu_read,  sys_management_sdu_read),  // 360
+   LINX_(__NR_management_sdu_write, sys_management_sdu_write), // 361
 };
 
 SyscallTableEntry* ML_(get_linux_syscall_entry) ( UInt sysno )
