@@ -1061,7 +1061,17 @@ static SyscallTableEntry syscall_table[] = {
 
    LINXY(__NR_process_vm_readv,  sys_process_vm_readv), // 310
    LINX_(__NR_process_vm_writev, sys_process_vm_writev),// 311
-   LINX_(__NR_kcmp,              sys_kcmp)              // 312
+   LINX_(__NR_kcmp,              sys_kcmp),             // 312
+
+   /* RINA specific system calls */
+   LINX_(__NR_ipc_create,        sys_ipc_create),       // 317
+   LINX_(__NR_ipc_destroy,       sys_ipc_destroy),      // 318
+   LINXY(__NR_sdu_read,          sys_sdu_read),         // 319
+   LINX_(__NR_sdu_write,         sys_sdu_write),        // 320
+   LINX_(__NR_allocate_port,     sys_allocate_port),    // 321
+   LINX_(__NR_deallocate_port,   sys_deallocate_port),  // 322
+   LINXY(__NR_management_sdu_read,  sys_management_sdu_read),  // 323
+   LINX_(__NR_management_sdu_write, sys_management_sdu_write), // 324
 };
 
 SyscallTableEntry* ML_(get_linux_syscall_entry) ( UInt sysno )

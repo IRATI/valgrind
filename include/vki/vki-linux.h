@@ -4515,6 +4515,11 @@ enum vki_kcmp_type {
    VKI_KCMP_TYPES
 };
 
+/* --- RINA specific types  --- */
+
+/* This is pretty use-less, why not use directly a short */
+typedef __vki_u16 vki_ipc_process_id_t;
+
 #endif // __VKI_LINUX_H
 
 /*--------------------------------------------------------------------*/
