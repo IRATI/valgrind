@@ -1835,7 +1835,7 @@ static SyscallTableEntry syscall_table[] = {
    LINX_(__NR_allocate_port,     sys_allocate_port),    // 358
    LINX_(__NR_deallocate_port,   sys_deallocate_port),  // 359
    LINXY(__NR_management_sdu_read,  sys_management_sdu_read),  // 360
-   LINX_(__NR_management_sdu_write, sys_management_sdu_write), // 361
+   LINX_(__NR_management_sdu_write, sys_management_sdu_write)  // 361
 };
 
 SyscallTableEntry* ML_(get_linux_syscall_entry) ( UInt sysno )
