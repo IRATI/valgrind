@@ -357,6 +357,16 @@ DECL_TEMPLATE(linux, sys_getpeername);
 DECL_TEMPLATE(linux, sys_socketpair);
 DECL_TEMPLATE(linux, sys_kcmp);
 
+/* RINA specific calls */
+DECL_TEMPLATE(linux, sys_ipc_create);
+DECL_TEMPLATE(linux, sys_ipc_destroy);
+DECL_TEMPLATE(linux, sys_sdu_read);
+DECL_TEMPLATE(linux, sys_sdu_write);
+DECL_TEMPLATE(linux, sys_allocate_port);
+DECL_TEMPLATE(linux, sys_deallocate_port);
+DECL_TEMPLATE(linux, sys_management_sdu_read);
+DECL_TEMPLATE(linux, sys_management_sdu_write);
+
 #endif   // __PRIV_SYSWRAP_LINUX_H
 
 /*--------------------------------------------------------------------*/
