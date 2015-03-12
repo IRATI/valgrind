@@ -10139,6 +10139,85 @@ PRE(sys_kcmp)
    }
 }
 
+
+/* ---------------------------------------------------------------------
+   RINA specific calls
+   ------------------------------------------------------------------ */
+
+/* IPCP management */
+PRE(sys_ipc_create)
+{
+   PRINT("sys_ipc_create ( %#lx, %#lx, %#lx, %#lx, %hd, %#lx )", ARG1, ARG2, ARG3, ARG4, (short)ARG5, ARG6);
+   PRE_REG_READ6(int, "ipc_create",
+                 const char*, process_name, const char *, process_instance, const char*, entity_name, const char*, entity_instance, vki_ipc_process_id_t, id, const char *, type);
+}
+
+PRE(sys_ipc_destroy)
+{
+   PRINT("sys_ipc_destroy ( %hd )", (short)ARG1);
+   PRE_REG_READ1(int, "ipc_destroy", vki_ipc_process_id_t, id);
+}
+
+/* Flow allocation calls */
+PRE(sys_allocate_port)
+{
+   PRINT("sys_allocate_port ( %hd, %#lx, %#lx )", (short)ARG1, ARG2, ARG3);
+   PRE_REG_READ3(int, "ipc_allocate_port", vki_ipc_process_id_t, id, const char *, process_name, const char *, process_instance);
+}
+
+PRE(sys_deallocate_port)
+{
+   PRINT("sys_deallocate_port ( %hd )", (short)ARG1);
+   PRE_REG_READ1(int, "ipc_deallocate_port", vki_ipc_process_id_t, id);
+}
+
+/* Normal SDUs */
+PRE(sys_sdu_read)
+{
+   PRINT("sys_sdu_read ( %ld, %#lx, %llu )", ARG1, ARG2, (ULong)ARG3);
+   PRE_REG_READ3(ssize_t, "sdu_read",
+                 unsigned int, id, char *, buf, vki_size_t, count);
+   PRE_MEM_WRITE( "sdu_read(buf)", ARG2, ARG3 );
+}
+
+POST(sys_sdu_read)
+{
+   vg_assert(SUCCESS);
+   POST_MEM_WRITE( ARG2, RES );
+}
+
+PRE(sys_sdu_write)
+{
+   PRINT("sys_sdu_write ( %ld, %#lx, %llu )", ARG1, ARG2, (ULong)ARG3);
+   PRE_REG_READ3(ssize_t, "sdu_write",
+                 unsigned int, id, const char *, buf, vki_size_t, count);
+   PRE_MEM_READ( "sdu_write(buf)", ARG2, ARG3 );
+}
+
+/* Mgmt SDUs */
+PRE(sys_management_sdu_read)
+{
+   PRINT("sys_management_sdu_read ( %ld, %#lx, %llu )", ARG1, ARG2,
+								(ULong)ARG3);
+   PRE_REG_READ3(ssize_t, "sdu_management_read",
+                 unsigned int, ipcp_id, char *, buf, vki_size_t, count);
+   PRE_MEM_WRITE( "sdu_management_read(buf)", ARG2, ARG3 );
+}
+
+POST(sys_management_sdu_read)
+{
+   vg_assert(SUCCESS);
+   POST_MEM_WRITE( ARG2, RES );
+}
+
+PRE(sys_management_sdu_write)
+{
+   PRINT("sys_management_sdu_write ( %ld, %#lx, %llu )", ARG1, ARG2, (ULong)ARG3);
+   PRE_REG_READ3(ssize_t, "management_sdu_write",
+                 unsigned int, ipcp_id, const char *, buf, vki_size_t, count);
+   PRE_MEM_READ( "management_sdu_write(buf)", ARG2, ARG3 );
+}
+
 #undef PRE
 #undef POST
 

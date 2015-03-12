@@ -395,6 +395,17 @@
 #define __NR_process_vm_writev  311
 #define __NR_kcmp               312
 
+/* RINA specific syscalls */
+#define __NR_ipc_create 317
+#define __NR_ipc_destroy 318
+#define __NR_sdu_read 319
+#define __NR_sdu_write 320
+#define __NR_allocate_port 321
+#define __NR_deallocate_port 322
+#define __NR_management_sdu_read 323
+#define __NR_management_sdu_write 324
+
+
 #endif /* __VKI_SCNUMS_AMD64_LINUX_H */
 
 /*--------------------------------------------------------------------*/

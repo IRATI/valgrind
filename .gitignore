@@ -12,6 +12,7 @@
 *.kdev4
 
 Makefile.in
+Makefile.vex.in
 Makefile
 .deps
 .libs
