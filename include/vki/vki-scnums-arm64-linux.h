@@ -8,7 +8,7 @@
    This file is part of Valgrind, a dynamic binary instrumentation
    framework.
 
-   Copyright (C) 2013-2013 OpenWorks
+   Copyright (C) 2013-2015 OpenWorks
       info@open-works.net
 
    This program is free software; you can redistribute it and/or
@@ -307,6 +307,13 @@
 #define __NR_process_vm_writev 271
 #define __NR_kcmp 272
 #define __NR_finit_module 273
+#define __NR_sched_setattr 274
+#define __NR_sched_getattr 275
+#define __NR_renameat2 276
+#define __NR_seccomp 277
+#define __NR_getrandom 278
+#define __NR_memfd_create 279
+#define __NR_bpf 280
 
 #undef __NR_syscalls
 #define __NR_syscalls 274
