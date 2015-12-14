@@ -10611,6 +10611,15 @@ PRE(sys_management_sdu_write)
    PRE_MEM_READ( "management_sdu_write(buf)", ARG2, ARG3 );
 }
 
+/* flow io ctl */
+PRE(sys_flow_io_ctl)
+{
+   PRINT("sys_flow_io_ctl ( %ld, %#lx, %llu )", ARG1, ARG2, (ULong)ARG3);
+   PRE_REG_READ3(int, "flow_io_ctl",
+                 unsigned int, pid, int, cmd, unsigned int, arg);
+   PRE_MEM_READ( "flow_io_ctl(buf)", ARG2, ARG3 );
+}
+
 #undef PRE
 #undef POST
 

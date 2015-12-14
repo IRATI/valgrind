@@ -376,6 +376,8 @@ DECL_TEMPLATE(linux, sys_allocate_port);
 DECL_TEMPLATE(linux, sys_deallocate_port);
 DECL_TEMPLATE(linux, sys_management_sdu_read);
 DECL_TEMPLATE(linux, sys_management_sdu_write);
+DECL_TEMPLATE(linux, sys_flow_io_ctl);
+
 
 #endif   // __PRIV_SYSWRAP_LINUX_H
 
